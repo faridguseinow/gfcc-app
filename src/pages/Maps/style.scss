@@ -1,0 +1,12 @@
+.map {
+    padding: 72px 16px;
+
+    .map_inner {
+
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border-radius: 8px;
+        }
+    }
+}

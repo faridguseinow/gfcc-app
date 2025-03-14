@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    background: #fff;
+    height: calc(56px + env(safe-area-inset-bottom));
+    backdrop-filter: blur(25px);
+    border-radius: 0 0 16px 16px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    a {
+        width: 80px;
+        padding-left: 16px;
+        display: flex;
+
+        img {
+            padding: 2px;
+        }
+
+
+        .logo_white {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,62 @@
+.pricelist_container {
+  width: 100%;
+  height: 100vh;
+  padding: 0 16px;
+}
+.pricelist_container .googlesheets_container .header_search {
+  height: 150px;
+  background: var(--bg-light);
+  position: fixed;
+  z-index: 2;
+  padding-top: 72px;
+}
+.pricelist_container .googlesheets_container .header_search h1 {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+.pricelist_container .googlesheets_container .header_search .search-input {
+  padding: 12px;
+  font-size: 16px;
+  background: var(--bg-light);
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  transition: all 250ms ease;
+  color: var(--text-dark);
+}
+.pricelist_container .googlesheets_container .header_search .search-input:focus {
+  border-color: var(--color-primary);
+}
+.pricelist_container .googlesheets_container .flower-table {
+  width: 100%;
+  padding: 180px 16px 0;
+  border-collapse: collapse;
+}
+.pricelist_container .googlesheets_container .flower-table th,
+.pricelist_container .googlesheets_container .flower-table td {
+  border: 1px solid var(--gray);
+  padding: 5px;
+  color: var(--text-dark);
+}
+.pricelist_container .googlesheets_container .flower-table th {
+  font-weight: 600;
+  vertical-align: middle;
+  background: var(--color-primary);
+}
+.pricelist_container .googlesheets_container .flower-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.pricelist_container .googlesheets_container .flower-table tr:hover {
+  background-color: #f1f1f1;
+}
+.pricelist_container .googlesheets_container .flower-table th:first-child,
+.pricelist_container .googlesheets_container .flower-table td:first-child {
+  width: 70%;
+  word-wrap: break-word;
+}
+.pricelist_container .googlesheets_container .flower-table th:last-child,
+.pricelist_container .googlesheets_container .flower-table td:last-child {
+  width: 30%;
+  text-align: right;
+}/*# sourceMappingURL=style.css.map */

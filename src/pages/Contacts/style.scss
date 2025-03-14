@@ -1,0 +1,109 @@
+.numbers_container {
+    padding: 72px 16px;
+    color: var(--text-dark);
+
+    h2 {
+        font-weight: 600;
+        font-size: 24px;
+        text-align: start;
+    }
+
+    .number_container_inner {
+        padding-top: 16px;
+
+        .num_section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 6px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+
+            .num_sec_top {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 6px;
+                font-weight: 600;
+
+                p {
+                    padding-left: 16px;
+                }
+            }
+
+            .num_sec_bottom {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .bottom_nums {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 16px;
+
+                    a {
+                        width: 100%;
+                        text-align: center;
+                        color: var(--text-dark);
+                        padding: 12px 16px;
+                        margin: 3px;
+                        background: #fff;
+                        border-radius: 8px;
+                        transition: all .3s ease;
+                        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                        font-size: 18px;
+
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+
+                    .whatsapp_icon {
+                        width: 15%;
+                        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                        border-radius: 8px;
+                        padding: 6px;
+                        transition: all .3s ease;
+
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social_media_container {
+        display: flex;
+        padding: 8px 0;
+
+        a {
+            background: var(--white);
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            transition: all .3s ease;
+            margin: 8px;
+            background: #fff;
+            border-radius: 8px;
+
+            img {
+                width: 30px;
+            }
+        }
+    }
+
+    h3 {
+        padding-bottom: 16px;
+    }
+
+    .web_div {
+        display: flex;
+        padding: 5px 5px 0;
+    }
+}
