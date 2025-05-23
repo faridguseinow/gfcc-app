@@ -1,29 +1,44 @@
 :root {
-    --font-regular: "Geologica_Regular.ttf";
-    --font-bold: "Geologica_Bold.ttf";
-    --gray: #a1a1a1;
-    --bg-light: #f5f5f5;
-    --bg-dark: #121212;
-    --text-light: #f5f5f5;
-    --text-dark: #222;
+    --f-light: "Light";
+    --f-regular: "Regular";
+    --f-bold: "Bold";
+    --gray: #eeeeee;
+    --bg: #fff;
+    --text: #000000;
+    --shadow: rgba(0, 0, 0, 0.1);
     --color-primary: #ecbb47;
 }
 
+.dark-theme {
+    --gray: #1b1b1b;
+    --bg: #000000;
+    --text: #ffffff;
+    --shadow: rgba(255, 255, 255, 0.1);
+    --color-primary: #ecbb47;
+}
+
+
 // Fonts
 @font-face {
-    font-family: var(--font-regular);
-    src: url('./assets/fonts/Geologica-Regular.ttf') format("truetype");
+    font-family: 'Bold';
+    src: url('./assets/fonts/Onest-Bold.ttf') format("OpenType");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: var(--font-bold);
-    src: url("./assets/fonts/Geologica-Bold.ttf") format("truetype");
+    font-family: 'Light';
+    src: url('./assets/fonts/Onest-Light.ttf') format("OpenType");
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Regular';
+    src: url('./assets/fonts/Onest-Regular.ttf') format("OpenType");
+    font-weight: normal;
+    font-style: normal;
+}
 
 // Styles
 * {
@@ -37,7 +52,7 @@
 h1,
 h2,
 h3 {
-    font-family: var(--font-bold);
+    font-family: var(---bold);
     src: url("./assets/fonts/Geologica-Bold.ttf") format("truetype");
 }
 
@@ -45,12 +60,16 @@ h3 {
 html,
 body,
 #root {
-    overflow: hidden;
-    overflow-y: auto;
-    max-height: 100vh;
+    overflow-x: hidden;
     width: 100%;
-    background: var(--bg-light);
+    background: var(--gray);
     background-attachment: fixed;
+    min-height: 100vh;
+    height: auto;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
 }
 
@@ -80,7 +99,7 @@ body,
                         height: 100%;
                         object-fit: cover;
                         padding: 6px;
-                        border-radius: 18px;
+                        border-radius: 24px;
                     }
 
                     // h3 {
@@ -110,4 +129,71 @@ body,
 
 .open-modal-btn:hover {
     background-color: #002244;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--gray);
+        transition: 0.4s;
+        border-radius: 34px;
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--bg);
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+    }
+
+    input:checked+.slider {
+        background-color: #ecbb47; // голубой, можешь заменить
+    }
+
+    input:checked+.slider::before {
+        transform: translateX(22px);
+    }
+}
+
+.main-wrapper {
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+.install-btn {
+    width: 260px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary, #ffb400);
+    color: #000;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 8px 16px;
+    z-index: 9999999;
 }

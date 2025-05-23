@@ -1,71 +1,77 @@
 import React, { useState, useEffect } from 'react';
 
-const GoogleSheet = () => {
-  const [data, setData] = useState([]); // Все данные
-  const [filteredData, setFilteredData] = useState([]); // Отфильтрованные данные
-  const [searchTerm, setSearchTerm] = useState(''); // Текущий запрос
+const CACHE_KEY = 'googleSheetData';
+const CACHE_TTL = 1000 * 60 * 60; // 1 час
+
+const GoogleSheet = ({ searchTerm, fontSize }) => {
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    // CSV-link of google sheets
-    const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRCnDvXwNmkB-hfZzKzZCEmsYT3-C5K9VgIORHYyd4D8IEzTv9_z3yzFJfEY6A-AjfTC2P5cZ00MjiS/pub?gid=799270477&single=true&output=csv';
+    const cached = localStorage.getItem(CACHE_KEY);
+
+    if (cached) {
+      const { timestamp, result } = JSON.parse(cached);
+      const now = Date.now();
+
+      if (now - timestamp < CACHE_TTL) {
+        setData(result);
+        setFilteredData(result);
+        return; // используем кэш
+      }
+    }
+
+    // если нет кэша или он устарел — загружаем
+    const sheetUrl =
+      'https://docs.google.com/spreadsheets/d/e/2PACX-1vRCnDvXwNmkB-hfZzKzZCEmsYT3-C5K9VgIORHYyd4D8IEzTv9_z3yzFJfEY6A-AjfTC2P5cZ00MjiS/pub?gid=799270477&single=true&output=csv';
 
     fetch(sheetUrl)
-      .then(response => response.text())
-      .then(csvText => {
-        const rows = csvText.split('\n').slice(1); // Пропускаем первую строку с заголовками
-        const formatPrice = (price) => {
-          return price.toLocaleString('ru-RU', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-        };
-        const result = rows.map(row => {
+      .then((response) => response.text())
+      .then((csvText) => {
+        const rows = csvText.split('\n').slice(1);
+        const result = rows.map((row) => {
           const columns = row.split(',');
-
           const name = columns[1]?.trim() || 'Нет данных';
-          const rawPrice = columns[5]?.replace(/"/g, '').replace(',', '.');
-          const price = parseFloat(rawPrice) || 0;
+          const rawPriceStr = columns[5]?.replace(/"/g, '').replace(/\s/g, '').replace(',', '.').trim();
 
-          return { name, price: formatPrice(price) };
+          let priceFormatted = 'нет данных';
+          if (rawPriceStr && !isNaN(rawPriceStr)) {
+            const priceNum = parseFloat(rawPriceStr);
+            priceFormatted = priceNum.toLocaleString('ru-RU', {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 2,
+            });
+          }
+
+          return { name, price: priceFormatted };
         });
 
-
         setData(result);
-        setFilteredData(result); // Показываем все данные по умолчанию
+        setFilteredData(result);
+
+        // сохраняем в кэш
+        localStorage.setItem(CACHE_KEY, JSON.stringify({
+          timestamp: Date.now(),
+          result
+        }));
       })
-      .catch(error => console.error('Ошибка загрузки данных:', error));
+      .catch((error) => console.error('Ошибка загрузки данных:', error));
   }, []);
 
-  const handleSearch = (e) => {
-    const value = e.target.value.toLowerCase();
-    setSearchTerm(value);
-    const filtered = data.filter(item =>
-      item.name.toLowerCase().includes(value)
+  useEffect(() => {
+    const filtered = data.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredData(filtered);
-  };
+  }, [searchTerm, data]);
 
   return (
-    <div>
-      <div className="header_search">
-        <h1>Прайслист</h1>
-
-        {/* Поле для поиска */}
-        <input
-          type="text"
-          placeholder="Поиск по наименованию..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-input"
-        />
-      </div>
-
-
-      <table className="flower-table">
+    <div className="table-container" style={{ overflowX: 'auto' }}>
+      <table className="flower-table" style={{ fontSize: `${fontSize}px` }}>
         <thead>
           <tr>
             <th>Наименование</th>
-            <th>Цена (₽)</th>
+            <th>Опт (₽)</th>
           </tr>
         </thead>
         <tbody>

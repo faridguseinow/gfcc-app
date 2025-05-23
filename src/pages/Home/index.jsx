@@ -17,7 +17,7 @@ import Decor from '/src/assets/media/catalogue/dekor.jpg';
 import Toys from '/src/assets/media/catalogue/iqruwki.jpg';
 import Baskets from '/src/assets/media/catalogue/korzina.jpg';
 import Plastic from '/src/assets/media/catalogue/plastic.jpg';
-
+import Dried from '/src/assets/media/catalogue/dried.jpg';
 import Altaj from '/src/assets/media/catalogue/altaj.jpg';
 import Candlelight from '/src/assets/media/catalogue/candlelight.jpg';
 import Gypsophile from '/src/assets/media/catalogue/gypsophile.jpg';
@@ -25,21 +25,10 @@ import Eucalyptus from '/src/assets/media/catalogue/eucalyptus.jpg';
 import Pistach from '/src/assets/media/catalogue/pistach.jpg';
 import Anthurium from '/src/assets/media/catalogue/anthurium.jpg';
 import Lily from '/src/assets/media/catalogue/lily.jpg';
+import Naqrada from '/src/assets/media/catalogue/naqrada.jpg';
 
 
 export default function index() {
-
-  let sliderOptions = [
-    {
-      img: 'https://sun9-21.userapi.com/impg/iYnFOSkehfKpALPKteLc7JeKtgj1ixE0jttK7A/-cXtrYJUdVY.jpg?size=720x480&quality=95&sign=84133caf8c18e946ce4fb2d1de3333a9&type=album',
-    },
-    {
-      img: 'https://sun9-68.userapi.com/impg/WbFGUHIjoCp1eM87ndrbu7JytbKmUcqw0qsl_Q/OV0tx_kYlpc.jpg?size=720x480&quality=95&sign=797cf7d82b40ef69ccd911c9dffb5d79&type=album',
-    },
-    {
-      img: 'https://sun9-73.userapi.com/impg/LFzMegvOIEBL1a2kWQczwUlIV96IEIjYtjPiIA/8rmWEOxETmw.jpg?size=720x480&quality=95&sign=0ad9a72778101a718f6fad9079fbf4dc&type=album',
-    }
-  ]
 
   return (
     <div className="main_container">
@@ -106,14 +95,17 @@ export default function index() {
 
       </div>
 
+      <h2>Награда от <span>Я</span>ндекс</h2>
+
       <div className="slide_wrapper">
         {/* <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999999"><path d="M560-208 288-480l272-272 88 88-184 184 184 184-88 88Z" /></svg></span> */}
-        <Slider
+        {/* <Slider
           loop={true}
           options={sliderOptions}
-        />
+        /> */}
         {/* <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999999"><path d="M472-480 288-664l88-88 272 272-272 272-88-88 184-184Z"/></svg></span> */}
 
+        <img src={Naqrada} alt="" />
       </div>
 
       <h2 className='catalogue_text'>Каталог товаров</h2>
@@ -183,11 +175,19 @@ export default function index() {
         </div>
 
         <div className="catalogue_items">
+          <a href="https://gfcc.ru/product?productType=accessories&productName=dried%20flowers">
+            <img src={Dried}
+              alt="dried" />
+          </a>
+          <p>Сухоцветы</p>
+        </div>
+
+        <div className="catalogue_items">
           <a href="https://gfcc.ru/product?productType=accessories&productName=for%20floristry">
             <img src={Accessories}
               alt="accessories" />
           </a>
-          <p>Для флористов</p>
+          <p>Инструменты</p>
         </div>
 
         <div className="catalogue_items">

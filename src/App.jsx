@@ -1,97 +1,114 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-// import { GoogleLogin } from '@react-oauth/google';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation
+} from 'react-router-dom';
+
+import { useEffect, useState } from 'react';
+import { AliveScope, KeepAlive } from 'react-activation';
 
 import './App.scss';
 import './reset.css';
 
-// import { useState } from "react";
-// import useMediaQuery from '@mui/material/useMediaQuery';
-// import { Paper, Switch } from '@mui/material';
-// import { ThemeProvider, createTheme } from '@mui/material';
-
-//Import Pages
 import Home from './pages/Home';
 import Contacts from './pages/Contacts';
 import Price from './pages/Price';
-import Maps from './pages/Maps';
-import Profile from './pages/Profile';
+import Others from './pages/Others';
 
-//import layout
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
 
-function App() {
+import InstallMobileIcon from '@mui/icons-material/InstallMobile';
 
-  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  // const [mode, setMode] = useState(prefersDarkMode);
+// ———————————————
+// Scroll Restoration (всё кроме /price)
+function ScrollHandler() {
+  const location = useLocation();
 
-  // const appTheme = createTheme({
-  //   palette: {
-  //     mode: mode ? "dark" : "light",
-  //   }
-  // });
+  useEffect(() => {
+    if (location.pathname !== '/price') {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
 
-  // const handleChange = () => {
-  //   if (mode) {
-  //     setMode(false);
-  //   } else {
-  //     setMode(true);
-  //   }
-  // };
+  return null;
+}
 
+// ———————————————
+// Установка PWA + --vh обновление
+function SetupHandlers() {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [showInstall, setShowInstall] = useState(false);
 
-// Google sign in
+  useEffect(() => {
+    const updateVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
 
-  // const responseMessage = (response) => {
-  //   console.log(response);
-  // };
-  // const errorMessage = (error) => {
-  //   console.log(error);
-  // };
+    updateVH();
+    window.addEventListener('resize', updateVH);
+
+    return () => window.removeEventListener('resize', updateVH);
+  }, []);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowInstall(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstall = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      console.log('✅ PWA установлено');
+    }
+    setDeferredPrompt(null);
+    setShowInstall(false);
+  };
 
   return (
+    showInstall && (
+      <button className="install-btn" onClick={handleInstall}>
+        <InstallMobileIcon/>Установить приложение
+      </button>
+    )
+  );
+}
+
+// ———————————————
+// Основной компонент
+function App() {
+  return (
     <Router>
-      <>
+      <AliveScope>
+        <ScrollHandler />
+        <SetupHandlers />
+
         <Header />
 
-        {/* <ThemeProvider theme={appTheme}>
-          <Paper elevation={0} sx={{ height: "100vh" }} square>
-            <h1>Dark Mode Tutorial</h1>
-
-            <Switch
-              checked={mode}
-              onChange={handleChange}
-            />
-          </Paper>
-        </ThemeProvider> */}
-
-{/* // Google sign in */}
-        {/* <div>
-          <h2>React Google Login</h2>
-          <br />
-          <br />
-          <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-        </div>
-         */}
         <Routes>
-
-          {/* PAGES */}
-          <Route path='/' element={<Home />} />
-          <Route path='/contacts' element={<Contacts />} />
-          <Route path='/price' element={<Price />} />
-          <Route path='/maps' element={<Maps />} />
-          <Route path='/profile' element={<Profile />} />
-
-          <Route
-            path="*"
-            element={<Navigate to="/" replace />}
-          />
+          <Route path="/" element={<KeepAlive><Home /></KeepAlive>} />
+          <Route path="/contacts" element={<KeepAlive><Contacts /></KeepAlive>} />
+          <Route path="/price" element={<KeepAlive><Price /></KeepAlive>} />
+          <Route path="/others" element={<KeepAlive><Others /></KeepAlive>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
         <Footer />
-      </>
+      </AliveScope>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

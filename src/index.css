@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,11 +23,13 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--bg, #fff);
+  color: var(--text, #000);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
 
 h1 {
   font-size: 3.2em;
@@ -36,7 +37,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -64,5 +65,17 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --text: #ffffff;
+    --gray: #2b2b2b;
+    --border: #444;
+    --gray-light: #2f2f2f;
+    --bg-hover: #333333;
+    --color-primary: #646cff;
   }
 }
