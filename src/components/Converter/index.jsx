@@ -84,7 +84,7 @@ class Converter extends Component {
     const { currencies, base, amount, convertTo, result, date } = this.state;
     return (
       <div className="converter-container">
-        <div className="row">
+        <div className="row glass">
           <div className="col-lg-6 mx-auto">
             <div className="card card-body">
               <h5>

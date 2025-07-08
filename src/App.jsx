@@ -80,7 +80,7 @@ function SetupHandlers() {
   return (
     showInstall && (
       <button className="install-btn" onClick={handleInstall}>
-        <InstallMobileIcon/>Установить приложение
+        <InstallMobileIcon />Установить приложение
       </button>
     )
   );
@@ -95,6 +95,7 @@ function App() {
         <ScrollHandler />
         <SetupHandlers />
 
+        <div id="background-layer"></div>
         <Header />
 
         <Routes>

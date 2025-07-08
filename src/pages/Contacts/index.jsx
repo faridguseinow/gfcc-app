@@ -23,7 +23,7 @@ export default function index() {
 
       <div className="number_container_inner">
 
-        <div className="num_section head">
+        <div className="num_section head glass">
 
           <div className="num_sec_top">
 
@@ -41,7 +41,7 @@ export default function index() {
 
         </div>
 
-        <div className="num_section xrizant">
+        <div className="num_section xrizant glass">
 
           <div className="num_sec_top">
             <img src={Num2} width={30} />
@@ -58,7 +58,7 @@ export default function index() {
           </div>
         </div>
 
-        <div className="num_section plant">
+        <div className="num_section plant glass">
 
           <div className="num_sec_top">
             <img src={Num6} width={35} />
@@ -81,7 +81,7 @@ export default function index() {
           </div>
         </div>
 
-        <div className="num_section exotics">
+        <div className="num_section exotics glass">
 
           <div className="num_sec_top">
             <img src={Num4} width={35} />
@@ -121,7 +121,7 @@ export default function index() {
 
         </div>
 
-        <div className="num_section kitay">
+        <div className="num_section kitay glass">
 
           <div className="num_sec_top">
             <img src={Num9} width={35} />
@@ -147,7 +147,7 @@ export default function index() {
 
         </div>
 
-        <div className="num_section rosekenya">
+        <div className="num_section rosekenya glass">
 
           <div className="num_sec_top">
             <img src={Num357} width={35} />
@@ -187,7 +187,7 @@ export default function index() {
 
         </div>
 
-        <div className="num_section roseecuador">
+        <div className="num_section roseecuador glass">
 
           <div className="num_sec_top">
             <img src={Num357} width={35} />
@@ -227,7 +227,7 @@ export default function index() {
 
         </div>
 
-        <div className="num_section rosewater">
+        <div className="num_section rosewater glass">
 
           <div className="num_sec_top">
             <img src={Num357} width={35} />
@@ -250,7 +250,7 @@ export default function index() {
           </div>
         </div>
 
-        <div className="num_section upakovka">
+        <div className="num_section upakovka glass">
 
           <div className="num_sec_top">
             <img src={Num8} width={35} />
@@ -273,7 +273,7 @@ export default function index() {
           </div>
         </div>
 
-        <div className="num_section delivery">
+        <div className="num_section delivery glass">
 
           <div className="num_sec_top">
             <img src={Num1} width={35} />
@@ -297,22 +297,33 @@ export default function index() {
         </div>
       </div>
 
+      <div className="map glass">
+        <div className="map_text">
+          <h1>Адрес</h1>
+          <p>Московская область, Ленинский район, деревня Апаринки, владение 9, строение 1, помещение 3</p>
+          <a href="https://yandex.ru/maps/-/CDcqbS7~" target='_blank'>
+            <p>Перейти в <span>Я</span>ндекс карты</p>
+          </a>
+        </div>
+
+      </div>
+
       <div className="social">
         <h2>Социальные сети</h2>
         <div className="social_media_container">
-          <Link to={'https://www.instagram.com/gfccru'} target={'_blank'}>
+          <Link className="glass" to={'https://www.instagram.com/gfccru'} target={'_blank'}>
             <img src={Insimg} alt="instagram" /> </Link>
-          <Link to={'https://t.me/GoldenFlowersOpt'} target='_blank'>
+          <Link className="glass" to={'https://t.me/GoldenFlowersOpt'} target='_blank'>
             <img src={TGimg} alt="telegram" /> </Link>
-          <Link to={'https://vk.com/gfccru'} target='_blank'>
+          <Link className="glass" to={'https://vk.com/gfccru'} target='_blank'>
             <img src={VKimg} alt="facebook" /> </Link>
-          <Link to={'https://www.youtube.com/@gfccru'} target='_blank'>
+          <Link className="glass" to={'https://www.youtube.com/@gfccru'} target='_blank'>
             <img src={YTimg} alt="youtube" /> </Link>
         </div>
 
         <div className="web_div">
-          <Link to={'https://www.gfcc.ru'} target='_blank'>Вебсайт🌐 www.gfcc.ru</Link>
-          <Link to={'mailto:info@gfcc.ru'} target='_blank'>Почта📧 info@gfcc.ru</Link>
+          <Link className="glass" to={'https://www.gfcc.ru'} target='_blank'>Вебсайт🌐 www.gfcc.ru</Link>
+          <Link className="glass" to={'mailto:info@gfcc.ru'} target='_blank'>Почта📧 info@gfcc.ru</Link>
         </div>
       </div>
 

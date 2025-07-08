@@ -48,7 +48,7 @@ const PriceList = ({ searchTerm, fontSize, reloadKey, selectedCategory }) => {
     ]);
 
   return (
-    <div className="price-wrapper">
+    <div className="price-wrapper glass">
       {sortedGrouped.map(([category, items]) => (
         <div key={category} className="price-category-block">
           <h3 className="price-category-title sticky-category">

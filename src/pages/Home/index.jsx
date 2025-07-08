@@ -31,13 +31,13 @@ import Naqrada from '/src/assets/media/catalogue/naqrada.jpg';
 export default function index() {
 
   return (
-    <div className="main_container">
+    <div className="main_container ">
 
       <h1>Бестселлеры</h1>
 
       <div className="bestsellers">
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=flowers&productName=spray&collection=chrysanthemum">
             <img src={Altaj}
               alt="altaj" />
@@ -45,7 +45,7 @@ export default function index() {
           <p>Алтай</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=flowers&productName=single-headed%20ecuador&collection=roses">
             <img src={Candlelight}
               alt="candlelight" />
@@ -53,7 +53,7 @@ export default function index() {
           <p>Кэндлайт</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=plants&productName=anthurium&collection=domestic">
             <img src={Anthurium}
               alt="anthurium" />
@@ -61,7 +61,7 @@ export default function index() {
           <p>Антуриум</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=flowers&productName=lily">
             <img src={Lily}
               alt="lily" />
@@ -69,7 +69,7 @@ export default function index() {
           <p>Лилия</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=plants&productName=gypsophila&collection=greenery">
             <img src={Gypsophile}
               alt="gypsophile" />
@@ -77,7 +77,7 @@ export default function index() {
           <p>Гипсофила</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=plants&productName=eucalyptus&collection=greenery">
             <img src={Eucalyptus}
               alt="eucalyptus" />
@@ -85,7 +85,7 @@ export default function index() {
           <p>Эвкалипт</p>
         </div>
 
-        <div className="bestsellers_items">
+        <div className="bestsellers_items glass">
           <a href="https://gfcc.ru/product?productType=plants&productName=pistacia&collection=greenery">
             <img src={Pistach}
               alt="pistach" />
@@ -97,7 +97,7 @@ export default function index() {
 
       <h1>Награда от <span>Я</span>ндекс</h1>
 
-      <div className="slide_wrapper">
+      <div className="slide_wrapper glass">
         {/* <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999999"><path d="M560-208 288-480l272-272 88 88-184 184 184 184-88 88Z" /></svg></span> */}
         {/* <Slider
           loop={true}
@@ -112,7 +112,7 @@ export default function index() {
 
       <div className="catalogue">
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/flowers/roses">
             <img src={Roses}
               alt="roses" />
@@ -120,7 +120,7 @@ export default function index() {
           <p>Розы</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/flowers">
             <img src={Exotics}
               alt="exotics" />
@@ -128,7 +128,7 @@ export default function index() {
           <p>Экзотика</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/flowers/chrysanthemum">
             <img src={Chrysant}
               alt="chrysant" />
@@ -136,7 +136,7 @@ export default function index() {
           <p>Хризантема</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/flowers/dianthus">
             <img src={Dianthus}
               alt="dianthus" />
@@ -144,7 +144,7 @@ export default function index() {
           <p>Гвоздика</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/plants/greenery">
             <img src={Green}
               alt="greenery" />
@@ -152,7 +152,7 @@ export default function index() {
           <p>Зелень</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/plants/domestic">
             <img src={Plants}
               alt="plants" />
@@ -166,7 +166,7 @@ export default function index() {
 
       <div className="catalogue">
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/products/plants/grunt">
             <img src={Drugs}
               alt="drugs" />
@@ -174,7 +174,7 @@ export default function index() {
           <p>Удобрения</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=dried%20flowers">
             <img src={Dried}
               alt="dried" />
@@ -182,7 +182,7 @@ export default function index() {
           <p>Сухоцветы</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=for%20floristry">
             <img src={Accessories}
               alt="accessories" />
@@ -190,7 +190,7 @@ export default function index() {
           <p>Инструменты</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=package">
             <img src={Package}
               alt="package" />
@@ -198,7 +198,7 @@ export default function index() {
           <p>Упаковка</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=boxes">
             <img src={Boxes}
               alt="boxes" />
@@ -206,7 +206,7 @@ export default function index() {
           <p>Ящики</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=baskets">
             <img src={Baskets}
               alt="baskets" />
@@ -214,7 +214,7 @@ export default function index() {
           <p>Корзины</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=plastic%20pots">
             <img src={Plastic}
               alt="pots" />
@@ -222,7 +222,7 @@ export default function index() {
           <p>Горшки</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=interior%20items">
             <img src={Decor}
               alt="decor" />
@@ -230,7 +230,7 @@ export default function index() {
           <p>Декор</p>
         </div>
 
-        <div className="catalogue_items">
+        <div className="catalogue_items glass">
           <a href="https://gfcc.ru/product?productType=accessories&productName=soft%20toy">
             <img src={Toys}
               alt="toys" />

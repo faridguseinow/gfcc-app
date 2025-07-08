@@ -1,15 +1,14 @@
 .bottom-nav {
-    width: 100%;
+    width: -webkit-fill-available;
     height: calc(56px + env(safe-area-inset-bottom));
     position: fixed;
     z-index: 999;
-    bottom: 0;
-    left: 0;
-    background: var(--bg);
+    margin: 0 32px;
+    bottom: 16px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border-radius: 16px 16px 0 0;
+    justify-content: space-between;
+    border-radius: 32px;
     box-shadow: 0 -2px 10px var(--shadow);
 
     .nav-button {
@@ -19,49 +18,31 @@
         flex-direction: column;
         align-items: center;
         gap: 8px;
-
-        &:active {
-            color: var(--color-primary);
-        }
-
-        // span {
-        //     color: var(--gray);
-        //     font-size: 24px;
-        //     padding: 5px;
-        //     border-radius: 16px;
-        // }
-
-        .nav_line {
-            width: 0;
-            height: 2px;
-            background: var(--color-primary);
-            border-radius: 4px;
-            transition: all 250ms ease;
-        }
+        width: 50px;
+        color: rgba(255, 255, 255, 0.555);
 
         svg {
-            width: 30px;
-            height: 23px;
-            min-width: 20px;
+            width: 50px;
+            height: 30px;
         }
     }
 
 
     .nav-button.active {
+        width: fit-content;
+        padding: 4px;
+        border-radius: 32px;
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        transition: 0.3s ease;
+        color: var(--color-primary);
+
         svg {
             path {
                 fill: var(--color-primary);
             }
-        }
-
-        .nav_line {
-            width: 100%;
-        }
-    }
-
-    .price {
-        span {
-            font-weight: 800;
         }
     }
 }

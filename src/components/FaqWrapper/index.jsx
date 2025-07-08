@@ -34,9 +34,9 @@ const FAQWrapper = () => {
   };
 
   return (
-    <div className="faq-wrapper">
+    <div className="faq-wrapper ">
       {faqData.map((item, index) => (
-        <div key={index} className="faq-item">
+        <div key={index} className="faq-item glass">
           <div className="faq-question" onClick={() => toggle(index)}>
             <span>{item.question}</span>
             <span className={`arrow ${openIndex === index ? 'open' : ''}`}><ArrowForwardIosIcon /></span>

@@ -1,5 +1,5 @@
 .numbers_container {
-    padding: 72px 16px;
+    padding: 85px 16px 82px;
     color: var(--text);
 
     h2 {
@@ -21,7 +21,6 @@
             flex-direction: column;
             padding: 6px;
             border-radius: 16px;
-            background: var(--bg);
             box-shadow: 0 -2px 10px var(--shadow);
 
             .num_sec_top {
@@ -80,6 +79,60 @@
         }
     }
 
+    .map {
+        width: 100%;
+        top: 56px;
+
+        .map_text {
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--bg);
+            padding-bottom: 16px;
+
+
+            h1 {
+                font-size: 24px;
+                font-family: var(--f-bold);
+
+            }
+
+            p {
+                font-family: var(--f-regular);
+                line-height: 1.2;
+            }
+
+            a {
+                width: fit-content;
+                padding: 8px 16px;
+                background: var(--bg);
+                border-radius: 16px;
+                box-shadow: 0 2px 10px var(--shadow);
+                transition: all .1s ease;
+
+                &:active {
+                    transform: scale(0.95);
+                }
+
+                p {
+                    text-decoration: none;
+                    color: var(--text);
+
+                    span {
+                        color: red;
+                    }
+
+
+                }
+
+
+            }
+        }
+    }
 
     .social {
         width: 100%;
@@ -95,18 +148,16 @@
             display: flex;
 
             a {
-                background: var(--bg);
-                height: 40px;
-                width: 40px;
+                height: 55px;
+                width: 55px;
                 display: flex;
                 justify-content: center;
                 transition: all .1s ease;
                 margin: 8px;
-                background: var(--bg);
                 border-radius: 16px;
 
                 img {
-                    width: 30px;
+                    width: 45px;
                 }
             }
         }
@@ -124,7 +175,6 @@
                 width: fit-content;
                 height: 36px;
                 padding: 10px;
-                background-color: var(--bg);
                 border-radius: 16px;
             }
 

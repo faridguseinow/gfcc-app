@@ -7,11 +7,9 @@
     font-family: var(--f-regular);
 
     .card-body {
-        background-color: var(--bg);
         border-radius: 16px;
         padding: 20px;
         color: var(--text);
-        box-shadow: 0 2px 10px var(--shadow);
 
         h5 {
             font-size: 18px;

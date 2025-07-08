@@ -19,7 +19,7 @@
 
 <body>
   <div id="root"></div>
-  <script>
+  <!-- <script>
     function updateThemeColor(color) {
       let metaTheme = document.querySelector('meta[name="theme-color"]');
       if (metaTheme) {
@@ -48,7 +48,17 @@
     function setManualTheme(isDark) {
       updateThemeColor(isDark ? '#000000' : '#ffffff');
     }
-  </script>
+  </script> -->
+
+  <script>
+  const savedBg = localStorage.getItem('wallpaper');
+  if (savedBg) {
+    document.body.style.backgroundImage = `url(${savedBg})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundAttachment = 'fixed';
+  }
+</script>
   
   <script type="module" src="/src/main.jsx"></script>
 </body>

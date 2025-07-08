@@ -1,0 +1,63 @@
+.wallpaper_selector {
+  padding: 16px;
+  border-radius: 16px;
+
+  h2 {
+    font-family: var(--f-bold);
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .wallpaper_list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    img {
+      width: 80px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.3s;
+
+      &.active {
+        border-color: var(--color-primary);
+        transform: scale(1.05);
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .upload_custom {
+      width: 80px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px dashed var(--color-primary);
+      border-radius: 8px;
+      color: var(--color-primary);
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
