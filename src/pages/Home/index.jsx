@@ -33,7 +33,7 @@ export default function index() {
   return (
     <div className="main_container">
 
-      <h2>Бестселлеры</h2>
+      <h1>Бестселлеры</h1>
 
       <div className="bestsellers">
 
@@ -95,7 +95,7 @@ export default function index() {
 
       </div>
 
-      <h2>Награда от <span>Я</span>ндекс</h2>
+      <h1>Награда от <span>Я</span>ндекс</h1>
 
       <div className="slide_wrapper">
         {/* <span><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999999"><path d="M560-208 288-480l272-272 88 88-184 184 184 184-88 88Z" /></svg></span> */}
@@ -108,7 +108,7 @@ export default function index() {
         <img src={Naqrada} alt="" />
       </div>
 
-      <h2 className='catalogue_text'>Каталог товаров</h2>
+      <h1 className='catalogue_text'>Каталог товаров</h1>
 
       <div className="catalogue">
 
@@ -162,7 +162,7 @@ export default function index() {
 
       </div>
 
-      <h2 className='catalogue_text'>Сопутствующие</h2>
+      <h1 className='catalogue_text'>Сопутствующие</h1>
 
       <div className="catalogue">
 

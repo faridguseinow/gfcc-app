@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import './style.scss';
 
-const PriceList = () => {
+const PriceList = ({ searchTerm, fontSize, reloadKey, selectedCategory }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://192.168.7.132:3001/api/prices')
+    fetch('https://gfcc-price-api-server.onrender.com/api/prices')
       .then(res => res.json())
       .then(json => {
         const cleaned = Array.isArray(json)
@@ -18,40 +19,53 @@ const PriceList = () => {
         console.error('Ошибка загрузки прайса:', err);
         setLoading(false);
       });
-  }, []);
+  }, [reloadKey]);
 
-  if (loading) return <p style={{ padding: '1rem' }}>Загрузка прайса...</p>;
+  if (loading) return <p className="price-loading">Загрузка прайса...</p>;
 
-  // Группировка по категориям
-  const grouped = {};
-  data.forEach(item => {
-    if (!grouped[item.category]) grouped[item.category] = [];
-    grouped[item.category].push(item);
+  // Фильтрация и группировка
+  const filtered = data.filter(item => {
+    const cleanCategory = item.category.replace(/[.,]/g, '').trim();
+    const matchesCategory = selectedCategory
+      ? cleanCategory === selectedCategory
+      : true;
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
+  const grouped = {};
+  filtered.forEach(item => {
+    const cleanCategory = item.category.replace(/[.,]/g, '').trim();
+    if (!grouped[cleanCategory]) grouped[cleanCategory] = [];
+    grouped[cleanCategory].push(item);
+  });
+
+  const sortedGrouped = Object.entries(grouped)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([category, items]) => [
+      category,
+      items.sort((a, b) => a.name.localeCompare(b.name))
+    ]);
+
   return (
-    <div style={{ padding: '1rem', overflowX: 'auto' }}>
-      {Object.entries(grouped).map(([category, items]) => (
-        <div key={category} style={{ marginBottom: '24px' }}>
-          <h3 style={{ fontSize: '14px', marginBottom: '8px', color: '#444' }}>
-            {category}
+    <div className="price-wrapper">
+      {sortedGrouped.map(([category, items]) => (
+        <div key={category} className="price-category-block">
+          <h3 className="price-category-title sticky-category">
+            {category} ({items.length})
           </h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '11px' }}>
+          <table className="price-table" style={{ fontSize: `${fontSize}px` }}>
             <thead>
               <tr>
-                <th style={thStyle}>Наименование</th>
-                <th style={thStyle}>Опт</th>
-                <th style={thStyle}>Доп</th>
-                <th style={thStyle}>Розн</th>
+                <th>Наименование</th>
+                <th>Цена*</th>
               </tr>
             </thead>
             <tbody>
               {items.map((item, idx) => (
                 <tr key={idx}>
-                  <td style={tdStyle}>{item.name}</td>
-                  <td style={tdStyle}>{format(item.wholesalePrice)}</td>
-                  <td style={tdStyle}>{format(item.extraPrice)}</td>
-                  <td style={tdStyle}>{format(item.retailPrice)}</td>
+                  <td>{item.name}</td>
+                  <td>{format(item.extraPrice)}</td>
                 </tr>
               ))}
             </tbody>
@@ -60,18 +74,6 @@ const PriceList = () => {
       ))}
     </div>
   );
-};
-
-const thStyle = {
-  borderBottom: '1px solid #ccc',
-  textAlign: 'left',
-  padding: '6px',
-  background: '#f6f6f6'
-};
-
-const tdStyle = {
-  padding: '6px',
-  borderBottom: '1px solid #eee'
 };
 
 function format(num) {
