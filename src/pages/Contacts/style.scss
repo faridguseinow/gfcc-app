@@ -1,6 +1,9 @@
 .numbers_container {
     padding: 85px 16px 82px;
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     h2 {
         font-weight: 600;
@@ -10,7 +13,6 @@
     }
 
     .number_container_inner {
-        padding: 16px 0;
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -56,7 +58,7 @@
                         color: var(--text);
                         padding: 12px 16px;
                         margin: 3px;
-                        background: var(--bg);
+                        background: var(--glass-bg);
                         font-family: var(--f-regular);
                         border-radius: 16px;
                         box-shadow: 0 -2px 10px var(--shadow);
@@ -81,7 +83,6 @@
 
     .map {
         width: 100%;
-        top: 56px;
 
         .map_text {
             color: var(--text);
@@ -91,8 +92,8 @@
             align-items: center;
             gap: 16px;
             text-align: center;
-            border-bottom: 1px solid var(--bg);
-            padding-bottom: 16px;
+            border-bottom: 1px solid var(--glass-bg);
+            padding: 16px;
 
 
             h1 {
@@ -109,7 +110,7 @@
             a {
                 width: fit-content;
                 padding: 8px 16px;
-                background: var(--bg);
+                background: var(--glass-bg);
                 border-radius: 16px;
                 box-shadow: 0 2px 10px var(--shadow);
                 transition: all .1s ease;
@@ -166,7 +167,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 16px;
             font-family: var(--f-regular);
 
             a {
@@ -185,11 +186,14 @@
 
 
     .author {
-        padding-top: 16px;
         color: var(--text);
         font-size: 12px;
         text-align: center;
-        font-family: var(--f-regular);
+        font-family: var(--f-light);
 
+        a {
+            text-decoration: none;
+            color: var(--text);
+        }
     }
 }

@@ -5,9 +5,9 @@ const PriceList = ({ searchTerm, fontSize, reloadKey, selectedCategory }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('https://gfcc-price-api-server.onrender.com/api/prices')
-      .then(res => res.json())
+useEffect(() => {
+  fetch('https://gfcc-price-api-server.onrender.com/api/prices')
+    .then(res => res.json())
       .then(json => {
         const cleaned = Array.isArray(json)
           ? json.filter(i => i.name && i.category)

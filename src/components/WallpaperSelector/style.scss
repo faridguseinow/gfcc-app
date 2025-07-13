@@ -1,40 +1,49 @@
 .wallpaper_selector {
   padding: 16px;
   border-radius: 16px;
+  background: var(--glass-bg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  position: relative;
 
   h2 {
     font-family: var(--f-bold);
     font-size: 18px;
     margin-bottom: 12px;
+    color: var(--text);
   }
 
   .wallpaper_list {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
     img {
-      width: 80px;
-      height: 50px;
+      width: 90px;
+      height: 60px;
       border-radius: 8px;
       object-fit: cover;
       cursor: pointer;
       border: 2px solid transparent;
-      transition: 0.3s;
+      transition: all 0.25s ease;
 
       &.active {
         border-color: var(--color-primary);
-        transform: scale(1.05);
+        transform: scale(1.08);
+        box-shadow: 0 0 0 2px var(--color-primary);
       }
 
       &:hover {
-        opacity: 0.8;
+        opacity: 0.85;
+        transform: scale(1.03);
       }
     }
 
     .upload_custom {
-      width: 80px;
-      height: 50px;
+      width: 90px;
+      height: 60px;
       background: rgba(255, 255, 255, 0.1);
       border: 2px dashed var(--color-primary);
       border-radius: 8px;
@@ -46,6 +55,7 @@
       justify-content: center;
       cursor: pointer;
       position: relative;
+      transition: all 0.25s ease;
 
       input {
         position: absolute;
@@ -57,6 +67,7 @@
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.03);
       }
     }
   }

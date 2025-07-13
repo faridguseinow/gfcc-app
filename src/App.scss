@@ -3,26 +3,26 @@
     --f-regular: "Regular";
     --f-bold: "Bold";
 
-    --gray: #eeeeee;
-    --bg: #ffffff96;
+    --buttons: #777777;
+
     --text: #000000;
     --color-primary: #ecbb47;
-
+    --border: rgba(255, 255, 255, 0.295);
     --shadow: rgba(0, 0, 0, 0.1);
 
-    --glass-bg-l: rgba(255, 255, 255, 0.15);
-    --glass-bg-d: rgba(109, 109, 109, 0.15);
-    --glass-sh-l: rgba(255, 255, 255, 0.15);
-    --glass-sh-d: rgba(255, 255, 255, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.295);
 }
 
 .dark-theme {
-    --gray: #1b1b1b;
-    --bg: #0000008f;
+
+    --buttons: #e6e6e6;
+
     --text: #ffffff;
     --color-primary: #ecbb47;
+    --border: rgba(155, 155, 155, 0.664);
+    --shadow: rgba(255, 255, 255, 0.062);
 
-    --shadow: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(56, 56, 56, 0.219);
 }
 
 // ======================
@@ -62,7 +62,8 @@ body,
     background-attachment: fixed;
     position: relative;
     z-index: 0;
-    background: none !important;
+    font-family: var(--f-regular);
+    user-select: none;
 
     ::-webkit-scrollbar {
         display: none;
@@ -79,75 +80,55 @@ h3 {
 // Glass Effect
 // ======================
 .glass {
-    background: var(--glass-bg-l);
-    border-radius: 16px;
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
-    backdrop-filter: blur(12px);
-    z-index: 2;
     position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 20px var(--shadow);
+    transition: 0.4s ease;
+    z-index: 2;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+
+    // — Внутренние слои для реалистичного стеклянного эффекта
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3),
+            inset -1px -1px 5px rgba(0, 0, 0, 0.2);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &>* {
+        position: relative;
+        z-index: 1; // Контент поверх слоёв
+    }
 
     &.light {
-        background: var(--glass-bg-l);
+        background: rgba(255, 255, 255, 0.25);
         color: var(--text);
     }
 
     &.dark {
-        background: var(--glass-bg-d);
-        color: #fff;
+        background: rgba(30, 30, 30, 0.2);
+        color: var(--text);
     }
 }
 
-// ======================
-// Switcher
-// ======================
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
 
-    input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 1px solid var(--gray);
-        transition: 0.4s;
-        border-radius: 34px;
-
-        &::before {
-            content: "";
-            position: absolute;
-            height: 20px;
-            width: 20px;
-            left: 4px;
-            bottom: 4px;
-            background-color: var(--bg);
-            transition: 0.4s;
-            border-radius: 50%;
-        }
-    }
-
-    input:checked+.slider {
-        background-color: var(--color-primary);
-    }
-
-    input:checked+.slider::before {
-        transform: translateX(22px);
-    }
-}
 
 // ======================
 // Slide Wrapper (Swiper)
@@ -208,8 +189,9 @@ h3 {
 }
 
 #background-layer {
+    width: 100%;
+    height: 100dvh;
     position: fixed;
-    inset: 0;
     z-index: -1;
     background-position: center;
     background-repeat: no-repeat;
@@ -217,4 +199,7 @@ h3 {
     background-attachment: fixed;
     transition: background-image 0.4s ease-in-out, opacity 0.3s ease;
     opacity: 1;
+    pointer-events: none;
+    user-select: none;
+    overscroll-behavior: none;
 }

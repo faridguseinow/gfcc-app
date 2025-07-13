@@ -9,7 +9,7 @@ export default function ThemeToggleSwitch({ toggleTheme, theme }) {
         onChange={toggleTheme}
         checked={theme === 'dark-theme'}
       />
-      <span className="slider"></span>
+      <span className="slider glass"></span>
     </label>
   );
 }

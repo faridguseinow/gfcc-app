@@ -1,48 +1,48 @@
 .bottom-nav {
-    width: -webkit-fill-available;
-    height: calc(56px + env(safe-area-inset-bottom));
-    position: fixed;
-    z-index: 999;
-    margin: 0 32px;
-    bottom: 16px;
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  margin: 0 48px;
+  height: calc(56px + env(safe-area-inset-bottom));
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden;
+  position: fixed;
+
+  .nav-button {
+    margin: 10px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    color: var(--buttons);
+    transition: color 0.2s;
+    z-index: 1;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.active {
+      color: var(--color-primary);
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: 4px;
+    left: -15px;
+    width: 60px !important;
+    height: 47px;
     border-radius: 32px;
-    box-shadow: 0 -2px 10px var(--shadow);
-
-    .nav-button {
-        margin: 10px;
-        transition: all .1s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        width: 50px;
-        color: rgba(255, 255, 255, 0.555);
-
-        svg {
-            width: 50px;
-            height: 30px;
-        }
-    }
-
-
-    .nav-button.active {
-        width: fit-content;
-        padding: 4px;
-        border-radius: 32px;
-        backdrop-filter: blur(12px) saturate(180%);
-        -webkit-backdrop-filter: blur(12px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        transition: 0.3s ease;
-        color: var(--color-primary);
-
-        svg {
-            path {
-                fill: var(--color-primary);
-            }
-        }
-    }
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 15px var(--glass-bg);
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 0;
+  }
 }

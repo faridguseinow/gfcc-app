@@ -25,7 +25,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: var(--bg, #fff);
+  background: var(--glass-bg, #fff);
   color: var(--text, #000);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -70,12 +70,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a1a1a;
+    --glass-bg: #1a1a1a;
     --text: #ffffff;
-    --gray: #2b2b2b;
+    --glass-bg: #2b2b2b;
     --border: #444;
-    --gray-light: #2f2f2f;
-    --bg-hover: #333333;
+    --glass-bg-light: #2f2f2f;
+    --glass-bg-hover: #333333;
     --color-primary: #646cff;
   }
 }

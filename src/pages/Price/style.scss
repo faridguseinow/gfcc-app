@@ -1,5 +1,5 @@
 .pricelist_container {
-    padding: 100px 16px;
+    padding: 140px 16px 85px;
     display: flex;
     flex-direction: column;
     font-family: var(--f-regular);
@@ -11,19 +11,18 @@
         left: 0;
         z-index: 99;
         padding: 16px;
+        margin-top: 16px;
 
         .titles {
-            padding: 8px;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
+            width: 100%;
+            padding: 16px;
             border-radius: 16px;
             box-shadow: 0 2px 10px var(--shadow);
 
             .title_left {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 12px;
                 text-align: center;
 
                 h1 {
@@ -39,35 +38,36 @@
 
                     button {
                         width: 56px;
+                        border: 0 !important;
                     }
+
+                    .filter-toggle {
+                        width: 150px;
+                        padding: 8px;
+                        margin-left: 16px;
+                    }
+
 
                 }
 
                 .search_input {
 
                     input {
-                        background: var(--bg);
+                        background: var(--glass-bg);
                         border: 0;
-                        width: fit-content;
-                        height: 32px;
+                        width: 100%;
+                        height: 36px;
                         border-radius: 8px;
                         color: var(--text);
-                        font-size: 14px;
-                        padding: 8px;
+                        font-size: 16px;
+                        padding: 16px;
                         font-family: var(--f-regular);
                     }
                 }
-
-
             }
-
         }
 
         .categories {
-
-            .filter-toggle {
-                padding: 8px;
-            }
 
             .category_filter {
                 p {
@@ -110,16 +110,33 @@
             }
 
             .category_list {
+
                 button {
                     margin: 3px;
                 }
             }
         }
     }
+
+    .googlesheets_container {
+        padding-top: 120px;
+    }
 }
 
 button {
     padding: 8px;
-    background: var(--bg);
+    background: var(--glass-bg);
     color: var(--text);
+    transition: all 0.3s ease;
+
+    &:active {
+        background: var(--gray);
+        color: var(--text);
+        backdrop-filter: blur(1px);
+        border: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
