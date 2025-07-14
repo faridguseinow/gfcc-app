@@ -1,0 +1,49 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  margin: 0 48px;
+  height: calc(56px + env(safe-area-inset-bottom));
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden;
+  position: fixed;
+
+  .nav-button {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--buttons);
+    transition: color 0.2s;
+    z-index: 1;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    &.active {
+      color: var(--color-primary);
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: 7px;
+    left: -15px;
+    width: 60px !important;
+    height: 40px;
+    border-radius: 32px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 15px var(--glass-bg);
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 0;
+  }
+}
