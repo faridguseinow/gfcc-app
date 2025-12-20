@@ -1,5 +1,6 @@
 .header {
     width: -webkit-fill-available;
+    max-width: 736px;
     height: calc(56px + env(safe-area-inset-bottom));
     border-radius: 32px;
     position: fixed;

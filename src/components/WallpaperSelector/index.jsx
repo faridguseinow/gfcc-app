@@ -27,7 +27,6 @@ export default function WallpaperSelector({ onSelect }) {
   };
 
   useEffect(() => {
-    console.log('test rasul')
     if (selected) {
       applyBackground(selected);
     }

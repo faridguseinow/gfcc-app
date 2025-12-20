@@ -1,9 +1,11 @@
 .bottom-nav {
   position: fixed;
   bottom: 16px;
+  max-width: 400px;
   left: 0;
   right: 0;
   margin: 0 48px;
+  align-self: center;
   height: calc(56px + env(safe-area-inset-bottom));
   border-radius: 32px;
   display: flex;
@@ -11,7 +13,6 @@
   align-items: center;
   z-index: 999;
   overflow: hidden;
-  position: fixed;
 
   .nav-button {
     margin: 10px;

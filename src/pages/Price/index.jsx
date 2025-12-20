@@ -61,7 +61,7 @@ export default function Price() {
 
       {filterOpen && (
         <div className="filter_panel open">
-          <p>* Цены в руб. (опт +5%) — обновляются с сервера.</p>
+          <p>* Цены в руб. (опт +5%) — обновляются с сервера каждый час.</p>
           <div className="category_filter">
             <h1>Категории:</h1>
             <div className="category_list">
